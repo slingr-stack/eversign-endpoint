@@ -1,0 +1,86 @@
+{
+    "label": "Eversign",
+    "name": "eversign",
+    "apiVersion": "v1",
+    "internal": false,
+    "configurationType": "GLOBAL",
+    "deployment": {
+        "profiles":[
+            {
+                "name": "default",
+                "label": "Default",
+                "memory": 256,
+                "description": "Default configuration"
+            }
+        ],
+        "allowMultipleInstances": true
+    },
+    "icon48": "https://storage.googleapis.com/static.slingrs.io/platform/endpoints/eversign.png",
+    "configurationHelpUrl": "/endpoints_eversign.html#configuration",
+    "status": "ACTIVE",
+    "stores": [],
+    "events": [
+        {
+            "label": "Webhook",
+            "name": "webhook",
+            "description": "Event triggered when there is a webhook coming from Eversign."
+        }
+    ],
+    "functions": [
+        {
+            "label": "GET",
+            "name": "_get"
+        },
+        {
+            "label": "POST",
+            "name": "_post"
+        },
+        {
+            "label": "DELETE",
+            "name": "_delete"
+        }
+    ],
+    "scripts":[
+        "functions.js"
+    ],
+    "configuration":[
+        {
+            "name": "apiKey",
+            "label": "API key",
+            "type": "text",
+            "required": true
+        },
+        {
+            "name": "businessId",
+            "label": "Business ID",
+            "type": "text",
+            "required": false
+        },
+        {
+            "name": "sandboxMode",
+            "label": "Sandbox mode",
+            "type": "buttonsGroup",
+            "required": true,
+            "defaultValue": "yes",
+            "typeOptions": {
+                "allowCustom": true,
+                "possibleValues":[
+                    {
+                        "label":"Yes",
+                        "name":"yes"
+                    },
+                    {
+                        "label":"No",
+                        "name":"no"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "webhook",
+            "label": "Webhook URL",
+            "type": "label",
+            "value": "config.WEBHOOK_URL"
+        }
+    ]
+}
